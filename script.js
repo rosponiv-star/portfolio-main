@@ -1,37 +1,33 @@
-// Simple Intersection Observer for basic scroll fade-ins
-const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -50px 0px',
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
+// Intersection Observer — smooth, staggered scroll reveals
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            // Only animate once
+            // Small stagger based on position in DOM for grouped siblings
+            const siblings = entry.target.parentElement.querySelectorAll('.slide-up');
+            const index = Array.from(siblings).indexOf(entry.target);
+            const delay = index * 80; // 80ms between each sibling
+
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, delay);
+
             observer.unobserve(entry.target);
         }
     });
-}, observerOptions);
-
-// Observe all elements with slide-up class
-document.querySelectorAll('.slide-up').forEach(el => {
-    observer.observe(el);
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -60px 0px'
 });
 
-// Basic smooth scroll for internal links
-document.querySelectorAll('.nav-links a').forEach(link => {
+document.querySelectorAll('.slide-up').forEach(el => observer.observe(el));
+
+// Smooth scroll for internal links
+document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
-        const targetId = link.getAttribute('href');
-        if (targetId.startsWith('#')) {
-            e.preventDefault();
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
 });

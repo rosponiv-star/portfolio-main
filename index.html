@@ -11,100 +11,106 @@
 </head>
 <body>
     <div class="layout">
-        <!-- Fixed Left Panel -->
-        <header class="sidebar">
-            <div class="sidebar-content">
-                <div>
-                    <h1 class="fade-in">Valerio Rosponi</h1>
-                    <h2 class="fade-in delay-1">UX Designer</h2>
-                    <p class="bio fade-in delay-2">
-                        Crafting intuitive, human-centered digital experiences. I bridge the gap between complex problems and elegant, accessible solutions.
-                    </p>
-                </div>
-                
-                <nav class="fade-in delay-3">
-                    <ul>
-                        <li><a href="#work" class="nav-link active">01. Selected Work</a></li>
-                        <li><a href="#approach" class="nav-link">02. Approach</a></li>
-                        <li><a href="#about" class="nav-link">03. About</a></li>
-                    </ul>
-                </nav>
+        <!-- Top Navigation -->
+        <nav class="navbar fade-in">
+            <div class="logo">Valerio Rosponi</div>
+            <div class="nav-links">
+                <a href="#work">Work</a>
+                <a href="#approach">Approach</a>
+                <a href="mailto:hello@example.com">Contact</a>
+            </div>
+        </nav>
 
-                <div class="socials fade-in delay-4">
-                    <a href="mailto:hello@example.com">Email</a>
+        <main class="content">
+            <!-- Hero -->
+            <section class="hero">
+                <h1 class="fade-in delay-1">UX Designer.</h1>
+                <p class="bio fade-in delay-2">
+                    Crafting intuitive, human-centered digital experiences. I bridge the gap between complex problems and elegant, accessible solutions.
+                </p>
+                <div class="socials fade-in delay-3">
                     <a href="#" target="_blank">LinkedIn</a>
                     <a href="#" target="_blank">Resume</a>
                 </div>
-            </div>
-        </header>
+            </section>
 
-        <!-- Scrollable Right Panel -->
-        <main class="content">
+            <!-- Work -->
             <section id="work" class="section">
-                <div class="project-card slide-up">
-                    <div class="project-visual">
-                        <div class="wireframe-box"></div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Fintech Dashboard Redesign</h3>
-                        <p>Streamlining complex financial data into a digestible, user-friendly interface for retail investors.</p>
-                        <ul class="tags">
-                            <li>UX Research</li>
-                            <li>UI Design</li>
-                            <li>Prototyping</li>
-                        </ul>
-                    </div>
+                <div class="section-header slide-up">
+                    <h2>Selected Work</h2>
+                    <div class="divider"></div>
                 </div>
 
-                <div class="project-card slide-up">
-                    <div class="project-visual">
-                        <div class="wireframe-box"></div>
+                <div class="projects-grid">
+                    <!-- Featured Project (Full Width) -->
+                    <div class="project-card slide-up">
+                        <div class="project-visual color-1">
+                            <div class="wireframe-box"></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Fintech Dashboard</h3>
+                            <p>Streamlining complex financial data into a digestible, user-friendly interface.</p>
+                            <ul class="tags">
+                                <li>UX Research</li>
+                                <li>UI Design</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="project-info">
-                        <h3>Healthcare Patient Portal</h3>
-                        <p>Improving accessibility and appointment booking flows for elderly patients.</p>
-                        <ul class="tags">
-                            <li>User Interviews</li>
-                            <li>Wireframing</li>
-                            <li>Usability Testing</li>
-                        </ul>
+
+                    <!-- Standard Projects (Half Width) -->
+                    <div class="project-card slide-up">
+                        <div class="project-visual color-2">
+                            <div class="wireframe-box"></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Healthcare Portal</h3>
+                            <p>Improving accessibility and appointment flows for elderly patients.</p>
+                            <ul class="tags">
+                                <li>Wireframing</li>
+                                <li>Usability Testing</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="project-card slide-up">
-                    <div class="project-visual">
-                        <div class="wireframe-box"></div>
-                    </div>
-                    <div class="project-info">
-                        <h3>E-commerce Checkout Optimization</h3>
-                        <p>Reducing cart abandonment through a simplified, frictionless multi-step checkout process.</p>
-                        <ul class="tags">
-                            <li>A/B Testing</li>
-                            <li>Interaction Design</li>
-                        </ul>
+                    
+                    <div class="project-card slide-up delay-1">
+                        <div class="project-visual color-3">
+                            <div class="wireframe-box"></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>E-commerce Checkout</h3>
+                            <p>Reducing cart abandonment through a simplified multi-step process.</p>
+                            <ul class="tags">
+                                <li>A/B Testing</li>
+                                <li>Interaction</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
 
+            <!-- Approach -->
             <section id="approach" class="section">
-                <h3 class="section-title">Design Approach</h3>
-                <div class="approach-grid">
+                <div class="section-header slide-up">
+                    <h2>Approach</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="approach-grid slide-up">
                     <div class="approach-item">
-                        <h4>Empathy First</h4>
+                        <h4>01. Empathy First</h4>
                         <p>True innovation starts with understanding the user's actual needs, not just their stated wants.</p>
                     </div>
                     <div class="approach-item">
-                        <h4>Iterative Process</h4>
+                        <h4>02. Iterative Process</h4>
                         <p>Design is never 'done'. I believe in rapid prototyping, testing, and refining based on real data.</p>
                     </div>
                     <div class="approach-item">
-                        <h4>Systematic Thinking</h4>
+                        <h4>03. Systematic Thinking</h4>
                         <p>Creating scalable design systems that ensure consistency and speed up development.</p>
                     </div>
                 </div>
             </section>
             
-            <footer class="main-footer">
+            <footer class="main-footer slide-up">
                 <p>&copy; 2026 Valerio Rosponi. Designed with intent.</p>
             </footer>
         </main>

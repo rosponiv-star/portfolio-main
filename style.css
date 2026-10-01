@@ -5,6 +5,11 @@
     --text-muted: #666666;
     --border-color: rgba(26, 26, 26, 0.15);
     --font-primary: 'Geist', sans-serif;
+    
+    /* Elegant, muted accent colors for project cards */
+    --accent-1: #e6e0d4; /* Warm sand */
+    --accent-2: #d4e0e6; /* Soft slate */
+    --accent-3: #e6d4df; /* Muted mauve */
 }
 
 * {
@@ -24,87 +29,60 @@ body {
 
 /* Layout */
 .layout {
-    display: flex;
-    min-height: 100vh;
+    max-width: 1100px; /* Constrained width for sequential flow */
+    margin: 0 auto;
+    padding: 0 3rem;
 }
 
-/* Sidebar (Left) */
-.sidebar {
-    width: 45%;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    padding: 4rem;
+/* Navbar */
+.navbar {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    border-right: 1px solid var(--border-color);
+    align-items: center;
+    padding: 3rem 0;
 }
 
-.sidebar-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between;
-}
-
-h1 {
-    font-size: 3.5rem;
+.logo {
+    font-size: 1.25rem;
     font-weight: 500;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text-main);
+}
+
+/* Hero */
+.hero {
+    padding: 8rem 0 10rem 0;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    font-weight: 400;
     letter-spacing: -0.03em;
     line-height: 1.1;
-    margin-bottom: 0.5rem;
-}
-
-h2 {
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--text-muted);
     margin-bottom: 2rem;
 }
 
 .bio {
-    font-size: 1.1rem;
-    max-width: 85%;
-    margin-bottom: 3rem;
-    font-weight: 300;
-}
-
-nav ul {
-    list-style: none;
-}
-
-nav li {
-    margin-bottom: 1rem;
-}
-
-.nav-link {
-    text-decoration: none;
+    font-size: 1.5rem;
     color: var(--text-muted);
-    font-size: 1rem;
-    font-weight: 400;
-    display: inline-flex;
-    align-items: center;
-    transition: color 0.3s ease;
-}
-
-.nav-link::before {
-    content: '';
-    display: inline-block;
-    width: 0;
-    height: 1px;
-    background-color: var(--text-main);
-    margin-right: 0;
-    transition: width 0.3s ease, margin-right 0.3s ease;
-}
-
-.nav-link:hover, .nav-link.active {
-    color: var(--text-main);
-}
-
-.nav-link:hover::before, .nav-link.active::before {
-    width: 2rem;
-    margin-right: 1rem;
+    max-width: 800px;
+    margin-bottom: 3.5rem;
+    font-weight: 300;
+    line-height: 1.4;
 }
 
 .socials {
@@ -115,9 +93,10 @@ nav li {
 .socials a {
     color: var(--text-main);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 3px;
     transition: border-color 0.3s ease;
 }
 
@@ -125,84 +104,116 @@ nav li {
     border-color: var(--text-main);
 }
 
-/* Content (Right) */
-.content {
-    width: 55%;
-    padding: 4rem;
-}
-
+/* Sections */
 .section {
-    margin-bottom: 8rem;
+    margin-bottom: 10rem;
 }
 
-.section-title {
-    font-size: 2rem;
-    font-weight: 500;
-    margin-bottom: 3rem;
-    letter-spacing: -0.02em;
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
 }
 
-/* Project Cards */
+.section-header h2 {
+    font-size: 1.75rem;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--border-color);
+    flex-grow: 1;
+    transform-origin: left;
+    animation: growLine 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes growLine {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem 3rem;
+}
+
+/* First project spans full width for an editorial pop */
+.project-card:nth-child(1) {
+    grid-column: 1 / -1;
+}
+.project-card:nth-child(1) .project-visual {
+    aspect-ratio: 21/9;
+}
+
 .project-card {
-    margin-bottom: 5rem;
     cursor: pointer;
     group;
 }
 
 .project-visual {
     width: 100%;
-    aspect-ratio: 16/9;
-    background-color: transparent;
-    border: 1px solid var(--border-color);
+    aspect-ratio: 4/3;
+    border-radius: 6px;
     margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    transition: border-color 0.4s ease;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Elegant Accent Colors */
+.color-1 { background-color: var(--accent-1); }
+.color-2 { background-color: var(--accent-2); }
+.color-3 { background-color: var(--accent-3); }
+
 .wireframe-box {
-    width: 60%;
-    height: 60%;
-    border: 1px solid var(--border-color);
+    width: 50%;
+    height: 50%;
+    border: 1px solid rgba(26,26,26,0.15);
     position: relative;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
 }
 
 .wireframe-box::before, .wireframe-box::after {
     content: '';
     position: absolute;
-    background-color: var(--border-color);
+    background-color: rgba(26,26,26,0.15);
+    transition: background-color 0.4s ease;
 }
 
-.wireframe-box::before {
-    top: 10%; left: 0; right: 0; height: 1px;
-}
-.wireframe-box::after {
-    top: 10%; bottom: 0; left: 25%; width: 1px;
-}
+.wireframe-box::before { top: 15%; left: 0; right: 0; height: 1px; }
+.wireframe-box::after { top: 15%; bottom: 0; left: 25%; width: 1px; }
 
 .project-card:hover .project-visual {
-    border-color: var(--text-main);
+    transform: translateY(-8px);
 }
 
 .project-card:hover .wireframe-box {
     transform: scale(1.05);
+    border-color: rgba(26,26,26,0.4);
+}
+
+.project-card:hover .wireframe-box::before, 
+.project-card:hover .wireframe-box::after {
+    background-color: rgba(26,26,26,0.4);
 }
 
 .project-info h3 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
-    transition: transform 0.3s ease;
 }
 
 .project-info p {
     color: var(--text-muted);
     font-size: 1rem;
     margin-bottom: 1rem;
-    max-width: 90%;
 }
 
 .tags {
@@ -213,34 +224,38 @@ nav li {
 
 .tags li {
     font-size: 0.75rem;
-    padding: 0.25rem 0.75rem;
+    padding: 0.2rem 0.6rem;
     border: 1px solid var(--border-color);
-    border-radius: 50px;
+    border-radius: 4px;
     color: var(--text-muted);
 }
 
 /* Approach Section */
 .approach-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
 }
 
 .approach-item h4 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 500;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
 }
 
 .approach-item p {
     color: var(--text-muted);
+    font-size: 0.95rem;
 }
 
 .main-footer {
-    padding-top: 4rem;
+    padding: 4rem 0;
     border-top: 1px solid var(--border-color);
     font-size: 0.85rem;
     color: var(--text-muted);
+    text-align: center;
 }
 
 /* Animations */
@@ -251,7 +266,7 @@ nav li {
 
 .slide-up {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
     transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -267,32 +282,13 @@ nav li {
 .delay-1 { animation-delay: 0.15s; }
 .delay-2 { animation-delay: 0.3s; }
 .delay-3 { animation-delay: 0.45s; }
-.delay-4 { animation-delay: 0.6s; }
 
 /* Responsive (Mobile) */
-@media (max-width: 900px) {
-    .layout {
-        flex-direction: column;
-    }
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        padding: 2rem;
-        border-right: none;
-        border-bottom: 1px solid var(--border-color);
-    }
-    .content {
-        width: 100%;
-        padding: 2rem;
-    }
-    h1 {
-        font-size: 2.5rem;
-    }
-    nav {
-        display: none; /* Hide nav on very small screens for simplicity */
-    }
-    .bio {
-        margin-bottom: 2rem;
-    }
+@media (max-width: 768px) {
+    .layout { padding: 0 1.5rem; }
+    .hero h1 { font-size: 3.5rem; }
+    .bio { font-size: 1.25rem; }
+    .projects-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .project-card:nth-child(1) .project-visual { aspect-ratio: 4/3; }
+    .approach-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 }

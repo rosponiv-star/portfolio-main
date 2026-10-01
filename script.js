@@ -1,11 +1,12 @@
-// Intersection Observer — smooth, staggered scroll reveals
+// Staggered scroll reveals
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach(entry => {
         if (entry.isIntersecting) {
-            // Small stagger based on position in DOM for grouped siblings
-            const siblings = entry.target.parentElement.querySelectorAll('.slide-up');
-            const index = Array.from(siblings).indexOf(entry.target);
-            const delay = index * 80; // 80ms between each sibling
+            // Stagger siblings that enter together
+            const parent = entry.target.parentElement;
+            const siblings = parent.querySelectorAll('.slide-up');
+            const idx = Array.from(siblings).indexOf(entry.target);
+            const delay = idx * 90;
 
             setTimeout(() => {
                 entry.target.classList.add('visible');
@@ -15,19 +16,17 @@ const observer = new IntersectionObserver((entries) => {
         }
     });
 }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -60px 0px'
+    threshold: 0.08,
+    rootMargin: '0px 0px -40px 0px'
 });
 
 document.querySelectorAll('.slide-up').forEach(el => observer.observe(el));
 
-// Smooth scroll for internal links
+// Smooth scroll for internal anchors
 document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', (e) => {
+    link.addEventListener('click', e => {
         e.preventDefault();
         const target = document.querySelector(link.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 });

@@ -1,7 +1,7 @@
-// Intersection Observer for scroll animations (slide-up)
+// Intersection Observer for scroll animations (slide-up and fade-in)
 const observerOptions = {
     root: null,
-    rootMargin: '0px 0px -50px 0px', // Trigger slightly before it hits the bottom
+    rootMargin: '0px 0px -10% 0px', // Trigger slightly before hitting the bottom
     threshold: 0.1
 };
 
@@ -20,7 +20,7 @@ document.querySelectorAll('.slide-up').forEach(el => {
     observer.observe(el);
 });
 
-// Smooth scroll for nav links
+// Smooth scroll for internal nav links
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', (e) => {
         const targetId = link.getAttribute('href');

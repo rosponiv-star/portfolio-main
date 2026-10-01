@@ -6,7 +6,7 @@
     <title>Valerio Rosponi | UX Designer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,22 +15,22 @@
         <nav class="navbar fade-in">
             <div class="logo">Valerio Rosponi</div>
             <div class="nav-links">
-                <a href="#work">Work</a>
-                <a href="#approach">Approach</a>
-                <a href="mailto:hello@example.com">Contact</a>
+                <a href="#work" class="nav-item">Work</a>
+                <a href="#approach" class="nav-item">Approach</a>
+                <a href="mailto:hello@example.com" class="nav-item accent-text">Contact</a>
             </div>
         </nav>
 
         <main class="content">
             <!-- Hero -->
             <section class="hero">
-                <h1 class="fade-in delay-1">UX Designer.</h1>
+                <h1 class="fade-in delay-1">UX Designer<span class="accent-dot">.</span></h1>
                 <p class="bio fade-in delay-2">
-                    Crafting intuitive, human-centered digital experiences. I bridge the gap between complex problems and elegant, accessible solutions.
+                    Crafting intuitive, <em>human-centered</em> digital experiences. I bridge the gap between complex logic and elegant, <em>effortless</em> solutions.
                 </p>
                 <div class="socials fade-in delay-3">
-                    <a href="#" target="_blank">LinkedIn</a>
-                    <a href="#" target="_blank">Resume</a>
+                    <a href="#" target="_blank" class="hover-line">LinkedIn</a>
+                    <a href="#" target="_blank" class="hover-line">Resume</a>
                 </div>
             </section>
 
@@ -41,50 +41,60 @@
                     <div class="divider"></div>
                 </div>
 
-                <div class="projects-grid">
-                    <!-- Featured Project (Full Width) -->
-                    <div class="project-card slide-up">
+                <div class="projects-stack">
+                    <!-- Project 1 -->
+                    <article class="project-card sticky" style="--card-index: 1;">
                         <div class="project-visual color-1">
-                            <div class="wireframe-box"></div>
+                            <div class="parallax-img">
+                                <div class="wireframe-box"></div>
+                            </div>
                         </div>
                         <div class="project-info">
-                            <h3>Fintech Dashboard</h3>
+                            <div class="project-meta">01 &mdash; Fintech</div>
+                            <h3>Trading Dashboard</h3>
                             <p>Streamlining complex financial data into a digestible, user-friendly interface.</p>
                             <ul class="tags">
                                 <li>UX Research</li>
                                 <li>UI Design</li>
                             </ul>
                         </div>
-                    </div>
+                    </article>
 
-                    <!-- Standard Projects (Half Width) -->
-                    <div class="project-card slide-up">
+                    <!-- Project 2 -->
+                    <article class="project-card sticky" style="--card-index: 2;">
                         <div class="project-visual color-2">
-                            <div class="wireframe-box"></div>
+                            <div class="parallax-img">
+                                <div class="wireframe-box"></div>
+                            </div>
                         </div>
                         <div class="project-info">
-                            <h3>Healthcare Portal</h3>
+                            <div class="project-meta">02 &mdash; Healthcare</div>
+                            <h3>Patient Portal</h3>
                             <p>Improving accessibility and appointment flows for elderly patients.</p>
                             <ul class="tags">
                                 <li>Wireframing</li>
-                                <li>Usability Testing</li>
+                                <li>Prototyping</li>
                             </ul>
                         </div>
-                    </div>
+                    </article>
                     
-                    <div class="project-card slide-up delay-1">
+                    <!-- Project 3 -->
+                    <article class="project-card sticky" style="--card-index: 3;">
                         <div class="project-visual color-3">
-                            <div class="wireframe-box"></div>
+                            <div class="parallax-img">
+                                <div class="wireframe-box"></div>
+                            </div>
                         </div>
                         <div class="project-info">
-                            <h3>E-commerce Checkout</h3>
+                            <div class="project-meta">03 &mdash; E-commerce</div>
+                            <h3>Checkout Flow</h3>
                             <p>Reducing cart abandonment through a simplified multi-step process.</p>
                             <ul class="tags">
                                 <li>A/B Testing</li>
                                 <li>Interaction</li>
                             </ul>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </section>
 
@@ -96,22 +106,22 @@
                 </div>
                 <div class="approach-grid slide-up">
                     <div class="approach-item">
-                        <h4>01. Empathy First</h4>
+                        <h4><em>01.</em> Empathy First</h4>
                         <p>True innovation starts with understanding the user's actual needs, not just their stated wants.</p>
                     </div>
                     <div class="approach-item">
-                        <h4>02. Iterative Process</h4>
+                        <h4><em>02.</em> Iterative Process</h4>
                         <p>Design is never 'done'. I believe in rapid prototyping, testing, and refining based on real data.</p>
                     </div>
                     <div class="approach-item">
-                        <h4>03. Systematic Thinking</h4>
+                        <h4><em>03.</em> Systematic Thinking</h4>
                         <p>Creating scalable design systems that ensure consistency and speed up development.</p>
                     </div>
                 </div>
             </section>
             
             <footer class="main-footer slide-up">
-                <p>&copy; 2026 Valerio Rosponi. Designed with intent.</p>
+                <p>&copy; 2026 Valerio Rosponi. Designed with <em>intent</em>.</p>
             </footer>
         </main>
     </div>
